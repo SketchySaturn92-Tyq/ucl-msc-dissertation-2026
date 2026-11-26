@@ -1,99 +1,72 @@
+**[中文](README.md) · [English](README.en.md)**
+
 # Behavioral Foresight Games with Bright-Line Heuristics
-### Extending Analogy-Based Limited Foresight to Financial Microstructure
+### 从类比式有限前瞻到金融微观结构
 
-**Author:** Quan Zhong
-**Supervisor:** Professor Philippe Jehiel
-**Degree:** MSc in Economics, University College London
-**Year:** September 2026
-**Word count:** 11,430
+**作者：** Quan Zhong
+**导师：** Philippe Jehiel 教授
+**学位：** 经济学硕士（MSc in Economics），伦敦大学学院
+**年份：** 2026 年 9 月
+**词数：** 11,430 词
 
-📄 **[Read the dissertation (PDF)](./QuanZhong_Foresight_MScDissertation_UCL_2026.pdf)**
-
----
-
-## Abstract
-
-This dissertation studies how boundedly-foresighted agents behave near a bright line. A bright
-line is a discrete threshold at which the marginal cost of action jumps. The paper traces the
-consequences from a single agent to a population, and then to a market.
-
-The behavioural primitive is a foresight horizon `h`. An agent with horizon `h` optimises over a
-rolling window of `h` periods. It forecasts its own future play by the same stationary rule it
-will use on arrival, and it places no value beyond the window (Jehiel, 1995; Jehiel and Lilico,
-2010).
-
-- **Model 1** shows analytically that limited foresight produces unconditional over-action on the
-  approach to the line. The excess action vanishes in the tails, and the myopic process crosses
-  the line weakly earlier.
-- **Model 2** aggregates two foresight types under coarse analogy-class perception and measures
-  the population against a jointly consistent full-foresight equilibrium. The gap between them is
-  the *magnet input*, and it is non-negative throughout the parameter sweep.
-- **Model 3** places this magnet in a market and adds the paper's main extension: a strategic
-  informed trader whose size `αI` and inventory cost `κI` are explicit primitives, and whose
-  order enters the flow that moves both price and state.
-
-One mechanism runs through all three layers. An agent's own action moves the state, and that is
-what makes foresight valuable. Decomposing the informed trader's profit shows that most of it
-comes from trading against predictable retail pressure, so stabilising the crowd and profiting
-from it are the same act.
-
-Every number reported in the paper is computed, and every figure is drawn, by code written for
-the paper under a single shared calibration (Python, NumPy, SciPy, Matplotlib).
+📄 **[阅读论文全文（PDF）](./QuanZhong_Foresight_MScDissertation_UCL_2026.pdf)**
 
 ---
 
-## Contents
+## 摘要
 
-| Chapter | Title | Page |
+本文研究有限前瞻的当事人（boundedly-foresighted agents）在亮线（bright line）附近如何行为。亮线是行动的边际成本发生跳跃的离散阈值。本文把由此产生的后果，从单个当事人追溯到群体，再追溯到市场。
+
+行为学层面的基本原语是前瞻视界 h。视界为 h 的当事人，在一个长度为 h 期的滚动窗口上做最优化。它以自己到达时将要采用的同一平稳规则，预测自身未来的行动，并且对窗口之外不赋予任何价值（Jehiel, 1995; Jehiel and Lilico, 2010）。
+
+- **模型 1** 以解析方式表明，有限前瞻在趋近亮线处产生无条件的过度行动。超额行动在尾部消失，而目光短浅的过程在弱意义下更早越过亮线。
+- **模型 2** 在粗糙的类比类（analogy class）感知下加总两类前瞻类型，并以一个联合一致的完全前瞻均衡为参照来度量该群体。二者之间的差距即**磁吸输入（magnet input）**，它在整个参数扫描范围内非负。
+- **模型 3** 把这一磁吸放入一个市场，并加入本文的主要拓展：一个策略性知情交易者，其规模 αI 与库存成本 κI 为显式原语，其订单进入同时推动价格与状态的订单流。
+
+一条机制贯穿这三个层次。当事人自身的行动会移动状态，而正是这一点使前瞻具有价值。对知情交易者的利润作分解可见，其利润的大部分来自与可预测的散户压力反向交易——于是稳定人群与从人群中获利成为同一个动作。
+
+文中报告的每一个数字都由代码计算得出，每一张图都由代码绘制，这些代码是为本文在单一共享校准下写成的（Python、NumPy、SciPy、Matplotlib）。
+
+---
+
+## 目录
+
+| 章 | 标题 | 页码 |
 | --- | --- | --- |
-| 1 | Introduction | 1 |
-| 2 | Related literature | 3 |
-| 3 | Model 1: single-agent limited-forecast equilibrium | 5 |
-| 4 | Model 2: population aggregation | 11 |
-| 5 | Model 3: a market with an informed trader | 21 |
-| 6 | Discussion and policy | 28 |
-| 7 | Conclusion | 31 |
-| — | Bibliography | 33 |
-| A–G | Appendices: solution methods, threshold symmetry, specification choices, leader and commitment, calibration and algorithms, regularity and existence, proofs | 34–40 |
+| 1 | 引言 | 1 |
+| 2 | 相关文献 | 3 |
+| 3 | 模型 1：单当事人有限前瞻均衡 | 5 |
+| 4 | 模型 2：群体加总 | 11 |
+| 5 | 模型 3：含知情交易者的市场 | 21 |
+| 6 | 讨论与政策 | 28 |
+| 7 | 结论 | 31 |
+| — | 参考文献 | 33 |
+| A–G | 附录：求解方法、阈值对称性、设定选择、领导者与承诺、校准与算法、正则性与存在性、证明 | 34–40 |
 
-## Headline results
+## 主要结果
 
-**Model 1 — over-action is unconditional.** For every state `x`, the myopic rule satisfies
-`a(1)(x) ≥ aFF(x)`, with the wedge equal to `−βC′(ρ(x)+aFF(x)) / γ(x) ≥ 0`. The wedge builds
-toward the line, peaks **0.116** while the agent is still strictly below the threshold, falls
-discontinuously at `s̄` where the cost jumps, and dies away in the tails.
+**模型 1——过度行动是无条件的。** 对每个状态 x，目光短浅规则满足 `a(1)(x) ≥ aFF(x)`，楔形差（wedge）等于 `−βC′(ρ(x)+aFF(x)) / γ(x) ≥ 0`。楔形差在趋近亮线时逐渐累积，在当事人仍严格位于阈值之下时达到峰值 **0.116**，在成本发生跳跃的 s̄ 处不连续地跌落，并在尾部逐渐消失。
 
-**Foresight converges fast.** One extra period of anticipation closes **58.9%** of the
-myopic-to-full-foresight gap; three periods close 82.9%; five periods close 96.7%. An aggregate
-magnet therefore needs genuinely myopic participants.
+**前瞻收敛得很快。** 多一期的预判即可弥合从目光短浅到完全前瞻之差距的 **58.9%**；三期弥合 82.9%；五期弥合 96.7%。因此，群体层面的磁吸需要真正目光短浅的参与者。
 
-**Model 2 — the magnet is about composition.** At a fixed herd mass the aggregate wedge is
-exactly `µ·w1`, vanishing at `µ = 0`. Coarse perception *weakens* the magnet: on the Near class
-it falls monotonically as the class half-bandwidth `δ` rises from 0.2 to 0.6. A threshold has to
-be locatable to be a target.
+**模型 2——磁吸关乎构成。** 在固定的羊群质量下，加总楔形差恰为 `µ·w1`，在 µ = 0 处消失。粗糙感知会*削弱*磁吸：在 Near 类上，随类半带宽 δ 由 0.2 升至 0.6，磁吸单调下降。阈值必须可被定位，才可能成为目标。
 
-**Model 3 — stabilising and profiting coincide.** Trading against predictable retail flow
-contributes 70.4% of expected profit in the Far class, 56.6% in Near and 31.8% in Trig for a
-small unconstrained informed sector. The systematic footprint is `−0.1336` at `αI = 0.05`,
-which is 47.5% of aggregate retail pressure. Leaning removes at most **half** of predictable
-flow (`k ≥ 1/2`), so the magnet is damped but never eliminated or reversed.
+**模型 3——稳定与获利彼此重合。** 对于一个规模较小且不受约束的知情交易者部门而言，与可预测的散户流反向交易贡献了 Far 类期望利润的 70.4%、Near 类的 56.6%、Trig 类的 31.8%。在 αI = 0.05 处，系统性足迹为 −0.1336，相当于加总散户压力的 47.5%。逆势倾侧最多只能移除可预测流的一半（k ≥ 1/2），因此磁吸会被压制，却从未被消除或反转。
 
-**The trader barely cares how irrational the crowd is.** The value of knowing the crowd is
-boundedly rational is at most ~0.055% of profit — second order by the envelope theorem. The
-trader damps the crowd firmly while caring little about exactly how biased it is.
+**交易者几乎不在意人群有多不理性。** 知道人群是有限理性的，其价值至多约为利润的 0.055%——按包络定理，这是二阶量。交易者坚定地压制人群，却很少在意它究竟有多偏。
 
 ---
 
-## Repository contents
+## 仓库内容
 
 ```
 .
-├── QuanZhong_Foresight_MScDissertation_UCL_2026.pdf   # full dissertation
-├── README.md                                          # this file
+├── QuanZhong_Foresight_MScDissertation_UCL_2026.pdf   # 论文全文
+├── README.md                                          # 本文件
 └── LICENSE
 ```
 
-## Citing
+## 引用
 
 ```bibtex
 @mastersthesis{zhong2026foresight,
@@ -107,12 +80,12 @@ trader damps the crowd firmly while caring little about exactly how biased it is
 }
 ```
 
-## Related work
+（条目内容保持原样，未作翻译，可直接复制使用。）
 
-Earlier undergraduate dissertation, same author:
-[ucl-bsc-dissertation-2025](https://github.com/SketchySaturn92-Tyq/ucl-bsc-dissertation-2025) —
-*Action Bias* (the mechanism that reappears here as the h = 1 case).
+## 相关研究
 
-## Licence
+同一作者早前的本科论文：[ucl-bsc-dissertation-2025](https://github.com/SketchySaturn92-Tyq/ucl-bsc-dissertation-2025)——即 *Action Bias*（文中以 h = 1 情形重现的那一机制）。
 
-Copyright © 2026 Quan Zhong. All rights reserved. See [LICENSE](./LICENSE).
+## 许可
+
+Copyright © 2026 Quan Zhong. 保留所有权利。见 [LICENSE](./LICENSE)。
